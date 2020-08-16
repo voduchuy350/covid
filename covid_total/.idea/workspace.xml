@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="82d16e8d-4855-4f79-af7b-c295f3102b1b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/fonts/Quicksand-Bold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/Quicksand-Light.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/Quicksand-Medium.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/Quicksand-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/Quicksand-SemiBold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/ic_banner.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/ic_eyes_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/ic_prevent_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/ic_prevent_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/ic_prevent_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/ic_prevent_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/ic_virus_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/ic_virus_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/ic_virus_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/ic_virus_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/ic_virus_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/ic_virus_6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/components/button_widget.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/components/covid_text.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/components/covid_text_field.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/components/empty_widget.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/components/indicator/ball_rotate_chase.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/components/indicator/decorate.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/components/indicator/indicator_painter.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/components/indicator/loading_indicator.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/components/loading_dot_widget.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/components/loading_widget.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/components/shadow_widget.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/constants.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/export.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/models/country_history_model.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/models/summary_model.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/resources/colors.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/resources/images.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screen/home/blocs/country_details_bloc.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screen/home/blocs/country_widget_bloc.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screen/home/blocs/home_bloc.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screen/home/home_screen.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screen/home/widget/animated_widget/banner_widget.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screen/home/widget/animated_widget/case_item_widget.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screen/home/widget/animated_widget/virus1_widget.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screen/home/widget/animated_widget/virus2_widget.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screen/home/widget/country_details_popup.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screen/home/widget/country_widget.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screen/home/widget/global_widget.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screen/home/widget/home_cliper.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screen/home/widget/tab_bar_widget.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/services/api_services.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/base/base.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/base/base_bloc.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/base/lifecycle.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/base/system_lifecycle_listener.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/dialog_utils.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/extensions/date_ext.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/extensions/double_ext.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/extensions/map_ext.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/number_utils.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/string_utils.dart" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1g81Tv7BwRCIFpyJecYRt1hIq71" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="dart.analysis.tool.window.force.activate" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/images" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/screen/home/widget" />
+      <recent name="$PROJECT_DIR$/lib/screen/home/blocs" />
+      <recent name="$PROJECT_DIR$/lib/models" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/images" />
+      <recent name="$PROJECT_DIR$/assets/fonts" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="82d16e8d-4855-4f79-af7b-c295f3102b1b" name="Default Changelist" comment="" />
+      <created>1597481416137</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1597481416137</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="486" y="190" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597562339778">
+      <screen x="0" y="23" width="1440" height="826" />
+    </state>
+    <state x="486" y="190" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.826@0.23.1440.826" timestamp="1597562339778" />
+    <state x="511" y="146" key="#xdebugger.evaluate" timestamp="1597560749647">
+      <screen x="0" y="23" width="1440" height="826" />
+    </state>
+    <state x="511" y="146" key="#xdebugger.evaluate/0.23.1440.826@0.23.1440.826" timestamp="1597560749647" />
+    <state width="1342" height="281" key="GridCell.Tab.0.bottom" timestamp="1597562357119">
+      <screen x="0" y="23" width="1440" height="826" />
+    </state>
+    <state width="1342" height="281" key="GridCell.Tab.0.bottom/0.23.1440.826@0.23.1440.826" timestamp="1597562357119" />
+    <state width="1342" height="281" key="GridCell.Tab.0.center" timestamp="1597562357118">
+      <screen x="0" y="23" width="1440" height="826" />
+    </state>
+    <state width="1342" height="281" key="GridCell.Tab.0.center/0.23.1440.826@0.23.1440.826" timestamp="1597562357118" />
+    <state width="1342" height="281" key="GridCell.Tab.0.left" timestamp="1597562357118">
+      <screen x="0" y="23" width="1440" height="826" />
+    </state>
+    <state width="1342" height="281" key="GridCell.Tab.0.left/0.23.1440.826@0.23.1440.826" timestamp="1597562357118" />
+    <state width="1342" height="281" key="GridCell.Tab.0.right" timestamp="1597562357119">
+      <screen x="0" y="23" width="1440" height="826" />
+    </state>
+    <state width="1342" height="281" key="GridCell.Tab.0.right/0.23.1440.826@0.23.1440.826" timestamp="1597562357119" />
+    <state x="401" y="193" width="852" height="486" key="find.popup" timestamp="1597569957641">
+      <screen x="0" y="23" width="1440" height="826" />
+    </state>
+    <state x="401" y="193" width="852" height="486" key="find.popup/0.23.1440.826@0.23.1440.826" timestamp="1597569957641" />
+  </component>
+</project>
