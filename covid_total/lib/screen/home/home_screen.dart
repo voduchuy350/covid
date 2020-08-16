@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:covid_total/models/summary_model.dart';
 import 'package:covid_total/screen/home/widget/animated_widget/banner_widget.dart';
 import 'package:covid_total/screen/home/widget/animated_widget/virus1_widget.dart';
@@ -46,7 +48,6 @@ class _HomeScreenState extends BaseState<HomeScreen> {
     double statusBarHeight = MediaQuery.of(context).padding.top;
 
     return Scaffold(
-        //backgroundColor: CovidColors.colorBackgroundF2F0ED,
       backgroundColor: Colors.white,
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,18 +56,18 @@ class _HomeScreenState extends BaseState<HomeScreen> {
               clipper: HomeClipper(),
               child: Container(
                 width: double.infinity,
-                height: screenSize.height * 0.40,
-
+                height: screenSize.height * 0.4,
                 decoration: BoxDecoration(
-                    // color : CovidColors.colorMain ,
+                     color : CovidColors.colorMain ,
                     gradient: LinearGradient(
-                        begin: Alignment.topRight,
-                        end: Alignment.bottomLeft,
+                        begin: Alignment.bottomCenter,
+                        end: Alignment.topCenter,
                         colors: [
                       CovidColors.colorMain,
                       //CovidColors.colorMainMedium
                       Color(0xff8991FF)
-                    ])),
+                    ])
+                ),
                 child: Stack(
                   children: <Widget>[
                     /// virus
@@ -126,34 +127,26 @@ class _HomeScreenState extends BaseState<HomeScreen> {
 
                     /// banner
                     Positioned(
-                      top: -70,
+                      top: Platform.isAndroid ?  -50 : - 70,
                       right: 20,
-                      child:
-//                      Image.asset(
-//                        CovidImages.ic_banner,
-//                        height: 350,
-//                        width: screenSize.width * 1.1,
-//                      ),
-                        BannerWidget()
-
+                      child: BannerWidget()
                     ),
-
 
                     /// virus
                     Positioned(
                         top: 50,
                         left: 20,
-                        child: Image.asset(CovidImages.ic_virus_2,
-                          height: 40,
-                          width: 40,
+                        child: Image.asset(CovidImages.ic_virus_4,
+                          height: 30,
+                          width: 30,
                         )
                     ),
 
                     /// virus
                     Positioned(
-                        top: 90,
+                        top: Platform.isAndroid ?  70 : 90,
                         left: 70,
-                        child: Image.asset(CovidImages.ic_virus_3,
+                        child: Image.asset(CovidImages.ic_virus_5,
                           height: 40,
                           width: 40,
                         )
@@ -161,7 +154,7 @@ class _HomeScreenState extends BaseState<HomeScreen> {
 
                     /// virus động 2
                     Positioned(
-                        top: 40,
+                        top: Platform.isAndroid ? 40 : 60,
                         left: 0,
                         right: 70,
                         child: Center(child: Virus2Widget())
@@ -176,7 +169,8 @@ class _HomeScreenState extends BaseState<HomeScreen> {
                             text: "Những ",
                             style: styleCovidText.copyWith(
                                 fontWeight: FontWeight.w400,
-                                color: CovidColors.colorMainLight,
+                                //color: CovidColors.colorMainLight,
+                                color: Colors.white,
                                 fontSize: scaleWidth(16))),
                         TextSpan(
                             text: "con số ",
@@ -188,7 +182,8 @@ class _HomeScreenState extends BaseState<HomeScreen> {
                             text: "biết nói ",
                             style: styleCovidText.copyWith(
                                 fontWeight: FontWeight.w400,
-                                color: CovidColors.colorMainLight,
+                                //color: CovidColors.colorMainLight,
+                                color: Colors.white,
                                 fontSize: scaleWidth(16))),
                       ])),
                     ),
@@ -204,7 +199,8 @@ class _HomeScreenState extends BaseState<HomeScreen> {
                             text: "về ",
                             style: styleCovidText.copyWith(
                                 fontWeight: FontWeight.w400,
-                                color: CovidColors.colorMainLight,
+                                //color: CovidColors.colorMainLight,
+                                color: Colors.white,
                                 fontSize: scaleWidth(16))),
                         TextSpan(
                             text: "COVID-19!",
@@ -220,19 +216,27 @@ class _HomeScreenState extends BaseState<HomeScreen> {
               ),
             ),
 
-            StreamBuilder<GlobalModel>(
-              stream: _bloc.mainStream,
-              builder: (context, snapshot) {
-                if (snapshot.error != null) {
-                  return _buildError(snapshot.error);
-                }
+            Expanded(
+              child: StreamBuilder<GlobalModel>(
+                stream: _bloc.mainStream,
+                builder: (context, snapshot) {
+                  if (snapshot.error != null) {
+                    return MyEmptyWidget(
+                      //image: TyMyImages.ic_empty_order,
+                      error: snapshot.error,
+                      onRetry: () {
+                        _bloc.loadData();
+                      },
+                    );
+                  }
 
-                if (snapshot.data == null) {
-                  return LoadingWidget();
-                } else {
-                  return _buildContent(snapshot.data);
+                  if (snapshot.data == null) {
+                    return LoadingWidget();
+                  } else {
+                    return _buildContent(snapshot.data);
+                  }
                 }
-              }
+              ),
             )
           ],
         ));
@@ -241,34 +245,25 @@ class _HomeScreenState extends BaseState<HomeScreen> {
   int _currentIndex = 0;
 
   Widget _buildContent(GlobalModel model) {
-
-    return Expanded(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          HomeTabBar((newIndex) {
-            setState(() {
-              _currentIndex = newIndex;
-            });
-          }),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 20),
-              child: _currentIndex == 0 ? GlobalWidget(model) : CountryWidget.newInstance(model: model),
-            ),
-          )
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        HomeTabBar((newIndex) {
+          setState(() {
+            _currentIndex = newIndex;
+          });
+        }),
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 20),
+            child: _currentIndex == 0 ? GlobalWidget(model) : CountryWidget.newInstance(model: model),
+          ),
+        )
+      ],
     );
   }
 
-  Widget _buildError(dynamic title) {
-    return MyEmptyWidget(
-      //image: TyMyImages.ic_empty_order,
-      error: title,
-    );
-  }
 
 
 }

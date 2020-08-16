@@ -61,7 +61,7 @@ class _CountryWidgetState extends BaseState<CountryWidget> {
                   padding: const EdgeInsets.only(left: 10),
                   child: CovidText("Quốc gia",
                     fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                    color: Colors.black.withAlpha(150),
                   ),
                 ),
                 flex: 2,

@@ -17,6 +17,4 @@ class CovidColors {
 
   static const colorBackgroundF2F0ED = Color(0xffF2F0ED);
 
-
-
 }

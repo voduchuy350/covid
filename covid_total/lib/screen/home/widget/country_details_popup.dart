@@ -1,4 +1,6 @@
 
+import 'dart:io';
+
 import 'package:covid_total/components/empty_widget.dart';
 import 'package:covid_total/components/shadow_widget.dart';
 import 'package:covid_total/models/country_history_model.dart';
@@ -57,7 +59,7 @@ class _CountryDetailsWidgetState extends BaseState<CountryDetailsWidget> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: screenSize.height * 0.7,
+      height: screenSize.height * (Platform.isAndroid ?  0.8 : 0.7),
       //  color: Colors.blue,
 
       child: Stack(
@@ -162,8 +164,8 @@ class _CountryDetailsWidgetState extends BaseState<CountryDetailsWidget> {
             padding: EdgeInsets.symmetric(horizontal: 20),
             child: CovidText("Thống kê theo ngày",
               fontWeight: FontWeight.bold,
-              size: 14,
-              color: Colors.black54,
+              size: 15,
+              color: Colors.black.withAlpha(150),
             ),
           ),
 
@@ -180,7 +182,7 @@ class _CountryDetailsWidgetState extends BaseState<CountryDetailsWidget> {
                     padding: const EdgeInsets.only(left: 10),
                     child: CovidText("Ngày",
                       fontWeight: FontWeight.bold,
-                      color: Colors.black,
+                      color: Colors.black.withAlpha(150),
                     ),
                   ),
                   flex: 5,
@@ -221,14 +223,22 @@ class _CountryDetailsWidgetState extends BaseState<CountryDetailsWidget> {
                 builder: (context, snapshot) {
 
                   if (snapshot.error != null) {
-                    return _buildError(snapshot.error);
+                    return MyEmptyWidget(
+                      error: snapshot.error,
+                      onRetry: () {
+                        _bloc.loadData();
+                      },
+                    );
                   }
 
                   if (snapshot.data == null) {
                     return LoadingWidget();
                   } else {
                      return ListView.builder(itemBuilder: (ctx,index) {
-                      return _buildCountryItem( index: index,item: snapshot.data[index]);
+                      return _buildCountryItem( index: index,
+                        item: snapshot.data[index],
+                          nextItem: index <  snapshot.data.length - 1 ? snapshot.data[index + 1] : null
+                      );
                     },
                       padding: EdgeInsets.all(0),
                       itemCount: snapshot.data.length,
@@ -244,7 +254,26 @@ class _CountryDetailsWidgetState extends BaseState<CountryDetailsWidget> {
   }
 
 
-  Widget _buildCountryItem({int index , CountryHistoryModel item}) {
+  Widget _buildCountryItem({int index ,
+    CountryHistoryModel item,
+    CountryHistoryModel nextItem}) {
+
+    int confirmed = nextItem != null ? item.confirmed - nextItem.confirmed : item.confirmed;
+    int death = nextItem != null ? item.deaths - nextItem.deaths : item.deaths;
+    int recovered = nextItem != null ? item.recovered - nextItem.recovered : item.recovered;
+//    int confirmed =  item.confirmed;
+//    int death =  item.deaths;
+//    int recovered =  item.recovered;
+
+    if (confirmed < 0 ) {
+      confirmed = 0;
+    }
+    if (death < 0 ) {
+      death = 0;
+    }
+    if (recovered < 0 ) {
+      recovered = 0;
+    }
 
     return Container(
       height: 45,
@@ -257,15 +286,15 @@ class _CountryDetailsWidgetState extends BaseState<CountryDetailsWidget> {
               padding: const EdgeInsets.only(left: 10),
               child: CovidText(item.date.toStringWithFormat(format: "dd/MM/yyyy"),
                 fontWeight: FontWeight.w400,
-                color: Colors.black54,
-                size: 12,
+                color: Colors.black.withAlpha(150) ,
+                size: 14,
               ),
             ),
             flex: 5,
           ),
           Expanded(
             flex: 3,
-            child: CovidText(item.confirmed.toFormatNumber(),
+            child: CovidText(confirmed.toFormatNumber(),
               fontWeight: FontWeight.bold,
               color: Colors.black54,
               textAlign: TextAlign.right,
@@ -274,7 +303,7 @@ class _CountryDetailsWidgetState extends BaseState<CountryDetailsWidget> {
           ),
           Expanded(
             flex: 3,
-            child: CovidText(item.deaths.toFormatNumber(),
+            child: CovidText(death.toFormatNumber(),
               fontWeight: FontWeight.bold,
               color: Colors.black54,
               textAlign: TextAlign.right,
@@ -283,7 +312,7 @@ class _CountryDetailsWidgetState extends BaseState<CountryDetailsWidget> {
           ),
           Expanded(
             flex: 3,
-            child: CovidText(item.recovered.toFormatNumber(),
+            child: CovidText(recovered.toFormatNumber(),
               fontWeight: FontWeight.bold,
               textAlign: TextAlign.right,
               color: Colors.black54,
@@ -323,38 +352,10 @@ class _CountryDetailsWidgetState extends BaseState<CountryDetailsWidget> {
       width: double.infinity,
       margin: EdgeInsets.only(top: 40),
       decoration: new BoxDecoration(
-          color: CovidColors.colorF1EFEC,
-        //color: Colors.white
-//          borderRadius: BorderRadius.only(topLeft:  const  Radius.circular(10.0),
-//              topRight: const  Radius.circular(10.0))
-      ),
-      //padding: EdgeInsets.only(top: 20),
-//      child: Padding(
-//        padding: const EdgeInsets.symmetric(horizontal: 20),
-//        child: Column(
-//          crossAxisAlignment: CrossAxisAlignment.start,
-//          children: <Widget>[
-//
-//            Padding(
-//              padding: const EdgeInsets.only(top: 50),
-//              child: CovidText(widget.country.country,
-//                fontWeight: FontWeight.bold,
-//                size: 25,
-//              ),
-//            )
-//
-//          ],
-//        ),
-//      ),
+        color: Color(0xffF2F5F7)
+      )
     );
   }
 
-
-  Widget _buildError(dynamic title) {
-    return MyEmptyWidget(
-      //image: TyMyImages.ic_empty_customer,
-      error: title,
-    );
-  }
 
 }

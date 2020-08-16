@@ -13,6 +13,8 @@ class Virus2Widget extends StatefulWidget {
 }
 
 class _Virus2WidgetState extends BaseState<Virus2Widget> {
+
+
   @override
   Widget build(BuildContext context) {
     return Container(

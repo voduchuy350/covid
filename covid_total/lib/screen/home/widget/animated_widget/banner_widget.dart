@@ -26,6 +26,7 @@ class _BannerWidgetState extends BaseState<BannerWidget> {
           CovidImages.ic_banner,
           height: screenSize.height * 0.4,
           width: screenSize.width * 1.1,
+          fit: BoxFit.fill,
         ),
       ),
 

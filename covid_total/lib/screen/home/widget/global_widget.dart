@@ -81,6 +81,7 @@ class _GlobalWidgetState extends BaseState<GlobalWidget>
                   CovidText(
                       subTitle,
                     textAlign: TextAlign.center,
+                    color: Colors.black54,
                   ),
                 ],
               ),
@@ -100,7 +101,7 @@ class _GlobalWidgetState extends BaseState<GlobalWidget>
           width: double.infinity,
           color: CovidColors.colorMain,
           alignment: Alignment.center,
-          child: CovidText("PHÒNG TRÁNH",
+          child: CovidText("TÔI CẦN PHẢI LÀM GÌ ?",
             fontWeight: FontWeight.bold,
             size: 14,
             color: Colors.white,
