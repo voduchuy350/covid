@@ -257,13 +257,15 @@ class _HomeScreenState extends BaseState<HomeScreen> {
         Expanded(
           child: Padding(
             padding: const EdgeInsets.only(top: 20),
-            child: _currentIndex == 0 ? GlobalWidget(model) : CountryWidget.newInstance(model: model),
+            child: AnimatedSwitcher(
+              duration: Duration(milliseconds: 500),
+              child: _currentIndex == 0 ? GlobalWidget(model) : CountryWidget.newInstance(model: model),
+            ),
           ),
         )
       ],
     );
   }
-
 
 
 }
